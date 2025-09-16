@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Brand Colors */
+    --color-primary: #1B365D; /* deep-navy */
+    --color-primary-foreground: #FFFFFF; /* white */
+    --color-secondary: #D4AF37; /* warm-gold */
+    --color-secondary-foreground: #1B365D; /* deep-navy */
+    --color-accent: #8B7355; /* muted-bronze */
+    --color-accent-foreground: #FFFFFF; /* white */
+    
+    /* Background & Surface */
+    --color-background: #FEFCF8; /* warm-white */
+    --color-foreground: #2C2C2C; /* charcoal */
+    --color-card: #F7F5F1; /* soft-cream */
+    --color-card-foreground: #2C2C2C; /* charcoal */
+    --color-popover: #FFFFFF; /* white */
+    --color-popover-foreground: #2C2C2C; /* charcoal */
+    
+    /* Text Hierarchy */
+    --color-muted: #F7F5F1; /* soft-cream */
+    --color-muted-foreground: #6B6B6B; /* medium-gray */
+    
+    /* Interactive Elements */
+    --color-border: #F7F5F1; /* soft-cream */
+    --color-input: #FFFFFF; /* white */
+    --color-ring: #D4AF37; /* warm-gold */
+    
+    /* Status Colors */
+    --color-success: #5D7C47; /* sage-green */
+    --color-success-foreground: #FFFFFF; /* white */
+    --color-warning: #B8860B; /* dark-gold */
+    --color-warning-foreground: #FFFFFF; /* white */
+    --color-error: #8B4513; /* warm-brown */
+    --color-error-foreground: #FFFFFF; /* white */
+    --color-destructive: #8B4513; /* warm-brown */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Spacing & Layout */
+    --spacing-base: 8px;
+    --border-radius: 8px;
+    --shadow-elegant: 0 4px 20px rgba(27, 54, 93, 0.08);
+    --shadow-luxury: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .cinematic-hero {
+    @apply relative min-h-screen flex items-center justify-center overflow-hidden;
+  }
+  
+  .luxury-card {
+    @apply bg-card text-card-foreground rounded-lg shadow-[var(--shadow-elegant)] border border-border;
+  }
+  
+  .golden-ratio-spacing {
+    @apply space-y-[13px] md:space-y-[21px] lg:space-y-[34px];
+  }
+  
+  .elegant-transition {
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  .luxury-hover {
+    @apply hover:shadow-[var(--shadow-luxury)] hover:scale-[1.02] elegant-transition;
+  }
+  
+  .brand-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  }
+  
+  .text-hierarchy-primary {
+    @apply text-foreground font-medium;
+  }
+  
+  .text-hierarchy-secondary {
+    @apply text-muted-foreground;
+  }
+.cta-primary  {
+    @apply bg-secondary text-secondary-foreground font-medium px-8 py-3 rounded-lg elegant-transition;
+  }
+  
+  .cta-secondary {
+    @apply bg-transparent text-primary border border-primary hover:bg-primary hover:text-primary-foreground font-medium px-8 py-3 rounded-lg elegant-transition;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .golden-ratio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.618fr;
+    gap: var(--spacing-base);
+  }
+  
+  .backdrop-luxury {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.9);
+  }
+  
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+}
